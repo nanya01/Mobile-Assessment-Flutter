@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:mobile_assessment_flutter/presentation/resources/color_manager.dart';
+import 'package:mobile_assessment_flutter/presentation/resources/font_manager.dart';
+import 'package:mobile_assessment_flutter/presentation/resources/styles.dart';
 
 class AppTextField extends StatefulWidget {
   final bool isPassword;
@@ -55,41 +58,24 @@ class AppTextField extends StatefulWidget {
 }
 
 class _AppTextFieldState extends State<AppTextField> {
-  IconData _passwordIcon = Icons.visibility;
-  late bool _obscureText;
-  late TextEditingController controller;
-
-  @override
-  void initState() {
-    _obscureText = widget.isPassword;
-    controller =
-        widget.controller ?? TextEditingController(text: widget.initialValue);
-
-    super.initState();
-  }
-
-  void _toggleTextVisibility() {
-    if (mounted) {
-      setState(() {
-        _obscureText = !_obscureText;
-        if (_passwordIcon == Icons.visibility) {
-          _passwordIcon = Icons.visibility_off;
-        } else {
-          _passwordIcon = Icons.visibility;
-        }
-      });
-    }
-  }
-
   @override
   Widget build(BuildContext context) => Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Text(widget.labelText ?? ''),
+          Text(
+            widget.labelText ?? '',
+            style: getRegularStyle(
+                color: ColorManager.black900, fontSize: FontSize.s16),
+          ),
           const SizedBox(height: 6),
           TextFormField(
+            decoration: InputDecoration(
+                fillColor: Theme.of(context).inputDecorationTheme.fillColor,
+                border: Theme.of(context).inputDecorationTheme.border,
+                contentPadding:
+                    Theme.of(context).inputDecorationTheme.contentPadding),
             textAlign: widget.textAlign ?? TextAlign.start,
-            obscureText: _obscureText,
+            obscureText: widget.isPassword,
             focusNode: widget.focusNode,
             validator: widget.validator,
             onChanged: widget.onChanged,
