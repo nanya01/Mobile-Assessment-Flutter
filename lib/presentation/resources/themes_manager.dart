@@ -11,9 +11,9 @@ ThemeData getApplicationTheme() {
           borderSide: const BorderSide(color: ColorManager.white)),
     ),
     textTheme: TextTheme(
-        bodyLarge:
+        headline1:
             getBoldStyle(color: ColorManager.white, fontSize: FontSize.s39_5),
-        headline1: getMediumStyle(
+        headline2: getMediumStyle(
             color: ColorManager.black400, fontSize: FontSize.s26),
         bodyText1: getLightStyle(color: ColorManager.black400, fontSize: 18)),
   );

@@ -12,34 +12,42 @@ class UserTypeScreen extends StatefulWidget {
 class _UserTypeScreenState extends State<UserTypeScreen> {
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: Column(
-        children: [
-          Text(
-            "What Kind of user are you?",
-            style: Theme.of(context).textTheme.headline1,
+    return SafeArea(
+      child: Scaffold(
+        body: Padding(
+          padding: EdgeInsets.symmetric(horizontal: 24.w),
+          child: Column(
+            children: [
+              SizedBox(height: 84.h),
+              Text(
+                "What Kind of user are you?",
+                style: Theme.of(context).textTheme.headline2,
+              ),
+              Text(
+                "we will adapt the app to suit your needs.",
+                style: Theme.of(context).textTheme.bodyText1,
+              ),
+              SizedBox(
+                height: 48.h,
+              ),
+              CustomElevatedButton(
+                text: "Personal",
+                buttonTextStyle: Theme.of(context).textTheme.headline1,
+                onPressed: () {},
+                buttonHeight: 136,
+              ),
+              SizedBox(
+                height: 40.h,
+              ),
+              CustomElevatedButton(
+                text: "E-Commerce",
+                buttonTextStyle: Theme.of(context).textTheme.headline1,
+                onPressed: () {},
+                buttonHeight: 136,
+              )
+            ],
           ),
-          Text(
-            "we will adapt the app to suit your needs.",
-            style: Theme.of(context).textTheme.bodyText1,
-          ),
-          SizedBox(
-            height: 48.h,
-          ),
-          CustomElevatedButton(
-            text: "Personal",
-            onPressed: () {},
-            buttonHeight: 136,
-          ),
-          SizedBox(
-            height: 40.h,
-          ),
-          CustomElevatedButton(
-            text: "E-Commerce",
-            onPressed: () {},
-            buttonHeight: 136,
-          )
-        ],
+        ),
       ),
     );
   }
