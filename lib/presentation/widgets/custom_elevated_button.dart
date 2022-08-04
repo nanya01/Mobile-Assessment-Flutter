@@ -4,6 +4,7 @@ import 'package:mobile_assessment_flutter/presentation/resources/styles.dart';
 
 class CustomElevatedButton extends StatefulWidget {
   final double? buttonHeight;
+  final double? radius;
   final TextStyle? buttonTextStyle;
   final Color buttonColor;
   final String text;
@@ -11,7 +12,8 @@ class CustomElevatedButton extends StatefulWidget {
   const CustomElevatedButton(
       {Key? key,
       required this.text,
-        this.buttonColor = ColorManager.teal,
+      this.radius = 24.0,
+      this.buttonColor = ColorManager.teal,
       this.buttonTextStyle,
       required this.onPressed,
       this.buttonHeight = 63})
@@ -31,7 +33,7 @@ class _CustomElevatedButtonState extends State<CustomElevatedButton> {
                 MaterialStateProperty.all<Color>(widget.buttonColor),
             shape: MaterialStateProperty.all<OutlinedBorder>(
                 RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(24.0))),
+                    borderRadius: BorderRadius.circular(widget.radius!))),
             minimumSize: MaterialStateProperty.all<Size>(
                 Size.fromHeight(widget.buttonHeight!))),
         child: Text(

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:mobile_assessment_flutter/presentation/authentication/ecommerce/e-commerce_register_screen.dart';
+import 'package:mobile_assessment_flutter/presentation/main_screens/home.dart';
 import 'package:mobile_assessment_flutter/presentation/resources/themes_manager.dart';
 
 void main() {
@@ -17,11 +17,10 @@ class MyApp extends StatelessWidget {
       designSize: const Size(360, 690),
       builder: (BuildContext context, Widget? child) {
         return MaterialApp(
-          debugShowCheckedModeBanner: false,
-          title: 'Flutter Demo',
-          theme: getApplicationTheme(),
-          home: EcommerceRegisterScreen(),
-        );
+            debugShowCheckedModeBanner: false,
+            title: 'Flutter Demo',
+            theme: getApplicationTheme(),
+            home: HomeScreen());
       },
     );
   }

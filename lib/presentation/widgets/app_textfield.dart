@@ -15,6 +15,7 @@ class AppTextField extends StatefulWidget {
   final TextInputType? keyboardType;
   final TextEditingController? controller;
   final InputBorder? inputBorder;
+  final InputBorder? enabledBorder;
   final int? maxLines;
   final bool hideBorder;
   final bool readOnly;
@@ -24,7 +25,7 @@ class AppTextField extends StatefulWidget {
   final Widget? suffixIcon;
   final Widget? prefixIcon;
   final String? errorText;
-
+  final bool? filled;
   final bool inputError;
   final FocusNode? focusNode;
 
@@ -33,6 +34,7 @@ class AppTextField extends StatefulWidget {
     this.hintText,
     this.keyboardType,
     this.controller,
+    this.filled,
     this.textAlign,
     this.initialValue,
     this.maxLines = 1,
@@ -42,6 +44,7 @@ class AppTextField extends StatefulWidget {
     this.hideBorder = false,
     this.isPassword = false,
     this.inputBorder,
+    this.enabledBorder,
     this.onChanged,
     this.formatters,
     this.readOnly = false,
@@ -70,8 +73,15 @@ class _AppTextFieldState extends State<AppTextField> {
           const SizedBox(height: 6),
           TextFormField(
             decoration: InputDecoration(
+                prefixIcon: widget.prefixIcon,
+                suffixIcon: widget.suffixIcon,
+                filled: widget.filled ??
+                    Theme.of(context).inputDecorationTheme.filled,
                 fillColor: Theme.of(context).inputDecorationTheme.fillColor,
-                border: Theme.of(context).inputDecorationTheme.border,
+                enabledBorder: widget.enabledBorder ??
+                    Theme.of(context).inputDecorationTheme.enabledBorder,
+                border: widget.inputBorder ??
+                    Theme.of(context).inputDecorationTheme.border,
                 contentPadding:
                     Theme.of(context).inputDecorationTheme.contentPadding),
             textAlign: widget.textAlign ?? TextAlign.start,
