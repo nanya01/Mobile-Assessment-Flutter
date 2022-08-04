@@ -3,6 +3,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:mobile_assessment_flutter/presentation/resources/styles.dart';
 
 import '../resources/color_manager.dart';
+import '../resources/routes_manager.dart';
 import '../widgets/app_textfield.dart';
 import '../widgets/custom_elevated_button.dart';
 
@@ -68,7 +69,10 @@ class _LoginScreenState extends State<LoginScreen> {
                     width: 141,
                     child: CustomElevatedButton(
                       text: "Sign In",
-                      onPressed: () {},
+                      onPressed: () {
+                        Navigator.of(context)
+                            .pushReplacementNamed(Routes.homeRoute);
+                      },
                     ),
                   ),
                 )

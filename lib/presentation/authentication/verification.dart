@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_otp_text_field/flutter_otp_text_field.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:mobile_assessment_flutter/presentation/resources/color_manager.dart';
+import 'package:mobile_assessment_flutter/presentation/resources/routes_manager.dart';
 import 'package:mobile_assessment_flutter/presentation/resources/styles.dart';
 
 import '../resources/font_manager.dart';
@@ -103,7 +104,10 @@ class _VerificationScreenState extends State<VerificationScreen> {
                 height: 36.h,
               ),
               Center(
-                child: ForwardNavigation(onTap: () {}),
+                child: ForwardNavigation(onTap: () {
+                  Navigator.of(context)
+                      .pushReplacementNamed(Routes.welcomeRoute);
+                }),
               )
             ],
           ),

@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:mobile_assessment_flutter/presentation/widgets/custom_elevated_button.dart';
 
+import '../resources/routes_manager.dart';
+
 class UserTypeScreen extends StatefulWidget {
   const UserTypeScreen({Key? key}) : super(key: key);
 
@@ -33,7 +35,10 @@ class _UserTypeScreenState extends State<UserTypeScreen> {
               CustomElevatedButton(
                 text: "Personal",
                 buttonTextStyle: Theme.of(context).textTheme.headline1,
-                onPressed: () {},
+                onPressed: () {
+                  Navigator.of(context)
+                      .pushReplacementNamed(Routes.personalRegisterRoute);
+                },
                 buttonHeight: 136,
               ),
               SizedBox(
@@ -42,7 +47,10 @@ class _UserTypeScreenState extends State<UserTypeScreen> {
               CustomElevatedButton(
                 text: "E-Commerce",
                 buttonTextStyle: Theme.of(context).textTheme.headline1,
-                onPressed: () {},
+                onPressed: () {
+                  Navigator.of(context)
+                      .pushReplacementNamed(Routes.eCommerceRegisterRoute);
+                },
                 buttonHeight: 136,
               )
             ],

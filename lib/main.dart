@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:mobile_assessment_flutter/presentation/onboarding/welcome.dart';
+import 'package:mobile_assessment_flutter/presentation/onboarding/user_type.dart';
+import 'package:mobile_assessment_flutter/presentation/resources/routes_manager.dart';
 import 'package:mobile_assessment_flutter/presentation/resources/themes_manager.dart';
 
 void main() {
@@ -20,7 +21,8 @@ class MyApp extends StatelessWidget {
             debugShowCheckedModeBanner: false,
             title: 'Flutter Demo',
             theme: getApplicationTheme(),
-            home: WelcomeScreen());
+            home: const UserTypeScreen(),
+            onGenerateRoute: RouteGenerator.getRoute);
       },
     );
   }

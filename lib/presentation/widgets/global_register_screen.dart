@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:mobile_assessment_flutter/presentation/resources/color_manager.dart';
 import 'package:mobile_assessment_flutter/presentation/resources/font_manager.dart';
+import 'package:mobile_assessment_flutter/presentation/resources/routes_manager.dart';
 import 'package:mobile_assessment_flutter/presentation/resources/styles.dart';
 import 'package:mobile_assessment_flutter/presentation/widgets/app_textfield.dart';
 import 'package:mobile_assessment_flutter/presentation/widgets/custom_elevated_button.dart';
@@ -110,7 +111,10 @@ class _GlobalRegisterScreenState extends State<GlobalRegisterScreen> {
                 width: 141,
                 child: CustomElevatedButton(
                   text: "Next",
-                  onPressed: () {},
+                  onPressed: () {
+                    Navigator.of(context)
+                        .pushReplacementNamed(Routes.verificationRoute);
+                  },
                 ),
               ),
             ],

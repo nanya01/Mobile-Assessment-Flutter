@@ -7,6 +7,7 @@ import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:intl/intl.dart';
 import 'package:mobile_assessment_flutter/presentation/resources/asset_path.dart';
+import 'package:mobile_assessment_flutter/presentation/resources/routes_manager.dart';
 import 'package:mobile_assessment_flutter/presentation/widgets/app_textfield.dart';
 import 'package:mobile_assessment_flutter/presentation/widgets/forward_navigation.dart';
 
@@ -138,20 +139,25 @@ class _HomeScreenState extends State<HomeScreen> {
                         width: 3,
                         height: 3,
                       ),
-                      suffixIcon: Container(
-                        margin: const EdgeInsets.only(top: 3, bottom: 3),
-                        width: 81,
-                        height: 38,
-                        decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(17.0),
-                          color: ColorManager.teal,
-                        ),
-                        child: Center(
-                          child: Text(
-                            "Track",
-                            style: getMediumStyle(
-                                color: ColorManager.white,
-                                fontSize: FontSize.s12),
+                      suffixIcon: GestureDetector(
+                        onTap: () {
+                          Navigator.of(context).pushNamed(Routes.mapRoute);
+                        },
+                        child: Container(
+                          margin: const EdgeInsets.only(top: 3, bottom: 3),
+                          width: 81,
+                          height: 38,
+                          decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(17.0),
+                            color: ColorManager.teal,
+                          ),
+                          child: Center(
+                            child: Text(
+                              "Track",
+                              style: getMediumStyle(
+                                  color: ColorManager.white,
+                                  fontSize: FontSize.s12),
+                            ),
                           ),
                         ),
                       ),

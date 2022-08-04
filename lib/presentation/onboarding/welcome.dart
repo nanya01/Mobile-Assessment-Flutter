@@ -5,6 +5,7 @@ import 'package:mobile_assessment_flutter/presentation/widgets/custom_elevated_b
 
 import '../resources/color_manager.dart';
 import '../resources/font_manager.dart';
+import '../resources/routes_manager.dart';
 import '../resources/styles.dart';
 
 class WelcomeScreen extends StatelessWidget {
@@ -47,7 +48,11 @@ class WelcomeScreen extends StatelessWidget {
                 child: SizedBox(
                     width: 194,
                     child: CustomElevatedButton(
-                        text: "Continue", onPressed: () {})))
+                        text: "Continue",
+                        onPressed: () {
+                          Navigator.of(context)
+                              .pushReplacementNamed(Routes.loginRoute);
+                        })))
           ],
         ),
       ),
